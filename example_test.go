@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/chyroc/baiduyun"
+	"github.com/chyroc/baiduyun-go"
 )
 
 // OAuth 流程

@@ -38,26 +38,26 @@ type FileMetadataReq struct {
 }
 
 type FileMeta struct {
-	Category    int    `json:"category"`
-	DateTaken   int    `json:"date_taken,omitempty"`
-	DLink       string `json:"dlink"`
-	Filename    string `json:"filename"`
-	FsID        int64  `json:"fs_id"`
-	Height      int    `json:"height,omitempty"`
-	Isdir       int    `json:"isdir"`
-	Md5         string `json:"md5"`
-	OperatorID  int    `json:"oper_id"`
-	Path        string `json:"path"`
-	ServerCtime int    `json:"server_ctime"`
-	ServerMtime int    `json:"server_mtime"`
-	Size        int    `json:"size"`
-	Thumbs      struct {
+	Category    int64    `json:"category"`     // 文件类型，含义如下：1 视频， 2 音乐，3 图片，4 文档，5 应用，6 其他，7 种子
+	DLink       string   `json:"dlink"`        // 文件下载地址，参考下载文档进行下载操作
+	Filename    string   `json:"filename"`     // 文件名
+	FsID        int64    `json:"fs_id"`        // id
+	Isdir       int64    `json:"isdir"`        // 是否是目录，为1表示目录，为0表示非目录
+	Md5         string   `json:"md5"`          // md5
+	OperatorID  int64    `json:"oper_id"`      // 操作者id
+	Path        string   `json:"path"`         // 路径
+	ServerCtime int64    `json:"server_ctime"` // 文件的服务器创建Unix时间戳，单位秒
+	ServerMtime int64    `json:"server_mtime"` // 文件的服务器修改Unix时间戳，单位秒
+	Size        int64    `json:"size"`         // 文件大小，单位字节
+	Thumbs      struct { // 缩略图地址
 		Icon string `json:"icon,omitempty"`
 		Url1 string `json:"url1,omitempty"`
 		Url2 string `json:"url2,omitempty"`
 		Url3 string `json:"url3,omitempty"`
 	} `json:"thumbs"`
-	Width int `json:"width,omitempty"`
+	DateTaken int64 `json:"date_taken,omitempty"` // 图片拍摄时间
+	Width     int64 `json:"width,omitempty"`      // 图片宽度
+	Height    int64 `json:"height,omitempty"`     // 图片高度
 }
 
 // == internal ==
